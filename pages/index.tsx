@@ -1,15 +1,25 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-
+import FinancesTable from "../components/FinancesTable";
 import { Heading, useDisclosure } from "@chakra-ui/react";
-
-import { useState } from "react";
-import FinancesTable, { IExpenses } from "./components/FinancesTable";
-import NewExpenseModal from "./components/NewExpenseModal";
+import NewExpenseModal from "../components/NewExpenseModal";
+import { useEffect, useState } from "react";
+import { IExpenses } from "../models/IExpense";
+import { api, getExpenses, removeExpense } from "../services/api";
 
 const Home: NextPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const [expenses, setExpenses] = useState<IExpenses[]>([]);
+  const [expenseToEdit, setExpenseToEdit] = useState<IExpenses>();
+
+  const fetchExpenses = () =>
+    getExpenses().then(expenseList => setExpenses(expenseList));
+
+  useEffect(() => {
+    fetchExpenses();
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -24,14 +34,31 @@ const Home: NextPage = () => {
           My Finances
         </Heading>
         <FinancesTable
+          expenses={expenses}
           onAddExpense={() => onOpen()}
+          onEditExpense={(expense) => {
+            setExpenseToEdit(expense);
+            onOpen();
+          }}
+          onRemoveExpense={async (expense) => {
+            await removeExpense(expense)
+            fetchExpenses();
+          }}
         />
         <NewExpenseModal
           isOpen={isOpen}
-          onClose={onClose} onSave={function (expense: IExpenses): void {
-            throw new Error("Function not implemented.");
-          } }          
-          />
+          expense={expenseToEdit}
+          onSave={() => {
+           fetchExpenses();
+           onClose(); 
+           setExpenseToEdit(undefined);
+          }}
+          onClose={() => {
+            onClose();
+            setExpenseToEdit(undefined);
+          }}
+          
+        />
       </main>
 
       <footer className={styles.footer}>
@@ -40,7 +67,8 @@ const Home: NextPage = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Project of Venturus4tech 2022
+          Project of My Finances Leo Rodaelli 
+            venturus4tech 2022
         </a>
       </footer>
     </div>

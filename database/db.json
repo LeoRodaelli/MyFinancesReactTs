@@ -1,0 +1,118 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Comida"
+    },
+    {
+      "id": 2,
+      "name": "Lazer"
+    },
+    {
+      "id": 3,
+      "name": "Supermercado"
+    },
+    {
+      "id": 4,
+      "name": "Transporte"
+    },
+    {
+      "id": 5,
+      "name": "Jogos"
+    },
+    {
+      "id": 6,
+      "name": "Farmácia"
+    },
+    {
+      "id": 7,
+      "name": "Roupas"
+    }
+  ],
+  "expenses": [
+    {
+      "id": 1,
+      "date": 1649041200000,
+      "description": "Compra no mercadinho da esquina",
+      "category": "Supermercado",
+      "value": 234
+    },
+    {
+      "id": 2,
+      "date": 1651719600000,
+      "description": "Restaurante do Shopping",
+      "category": "Comida",
+      "value": 99.99
+    },
+    {
+      "id": 3,
+      "date": 1644116400000,
+      "description": "FIFA 2022",
+      "category": "Jogos",
+      "value": 120.5
+    },
+    {
+      "id": 4,
+      "date": 1651806000000,
+      "description": "Ingressos no cinema",
+      "category": "Lazer",
+      "value": 94.29
+    },
+    {
+      "id": 5,
+      "date": 1657076400000,
+      "description": "Passagem de ônibus público",
+      "category": "Transporte",
+      "value": 10
+    },
+    {
+      "description": "Desodorante",
+      "value": 50,
+      "category": "Farmácia",
+      "date": 1657888375450,
+      "id": 6
+    },
+    {
+      "description": "almoço",
+      "value": 22,
+      "category": "Comida",
+      "date": 1657889632629,
+      "id": 11
+    },
+    {
+      "description": "Remedio",
+      "value": 90,
+      "category": "Farmácia",
+      "date": 1657891184688,
+      "id": 12
+    },
+    {
+      "id": 13,
+      "description": "camiseta nike",
+      "value": 150,
+      "category": "Roupas",
+      "date": 1657891565907
+    },
+    {
+      "description": "Bomba Patch",
+      "value": 20,
+      "category": "Jogos",
+      "date": 1657891959957,
+      "id": 14
+    },
+    {
+      "description": "Mascara",
+      "value": 25,
+      "category": "Farmácia",
+      "date": 1657895158878,
+      "id": 15
+    },
+    {
+      "description": "carne e frango",
+      "value": 60,
+      "category": "Supermercado",
+      "date": 1657896686875,
+      "id": 16
+    }
+  ]
+}
